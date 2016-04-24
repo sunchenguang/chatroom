@@ -1,21 +1,36 @@
 'use strict';
 
-import 'angular/angular-csp.css';
-import 'angular-ui-select/select.min.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+require('angular/angular-csp.css');
 
-import jQuery from 'jquery';
-import 'angular';
-import 'angular-ui-select/select';
-import 'angular-mocks';
-import 'angular-cookies';
-import 'angular-resource';
-import 'angular-sanitize';
-import 'angular-ui-router';
-import 'angular-jwt';
-import 'angular-bootstrap/ui-bootstrap-tpls';
+require('angular-ui-select/select.min.css');
 
-window.$ = jQuery;
+require('bootstrap/dist/css/bootstrap.min.css');
+
+var _jquery = require('jquery');
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+require('angular');
+
+require('angular-ui-select/select');
+
+require('angular-mocks');
+
+require('angular-cookies');
+
+require('angular-resource');
+
+require('angular-sanitize');
+
+require('angular-ui-router');
+
+require('angular-jwt');
+
+require('angular-bootstrap/ui-bootstrap-tpls');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+window.$ = _jquery2.default;
 
 angular.element(document).ready(function () {
     //Fixing facebook bug with redirect
@@ -25,11 +40,12 @@ angular.element(document).ready(function () {
     //手动启动mean这
 
     angular.bootstrap(document, ['mean']);
-
 });
 
 function processModules(modules) {
-    var packageModules = ['ngCookies', 'ngResource', 'ui.bootstrap', 'ui.router', 'ui.select', 'ngSanitize'], m, mn;
+    var packageModules = ['ngCookies', 'ngResource', 'ui.bootstrap', 'ui.router', 'ui.select', 'ngSanitize'],
+        m,
+        mn;
     for (var index in modules) {
         m = modules[index];
         mn = 'mean.' + m.name;
@@ -45,8 +61,10 @@ function processModules(modules) {
     angular.module('mean', packageModules);
 }
 
-jQuery.ajax('/_getModules', {
+_jquery2.default.ajax('/_getModules', {
     dataType: 'json',
     async: false,
     success: processModules
 });
+
+//# sourceMappingURL=app-compiled.js.map

@@ -10,7 +10,7 @@ console.log = function(){
 
 process.env.NODE_CONFIG_DIR = './config/env';
 
-// Requires meanio .
+// Requires meanio
 var mean = require('meanio');
 var cluster = require('cluster');
 var deferred = require('q').defer();

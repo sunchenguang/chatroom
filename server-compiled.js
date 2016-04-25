@@ -11,8 +11,9 @@ console.log = function(){
 process.env.NODE_CONFIG_DIR = './config/env';
 
 // Requires meanio
+//Extracted functionality for MEAN.io
 var mean = require('meanio');
-var cluster = require('cluster');
+var cluster = require('cluster'); //extensible multi-core server manager
 var deferred = require('q').defer();
 
 // Code to run if we're in the master process or if we are not in debug mode/ running tests

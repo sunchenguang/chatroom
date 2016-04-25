@@ -1,14 +1,14 @@
 'use strict';
 
 var gulp = require('gulp'),
-  path = require('path'),
-  shell = require('shelljs');
+  path = require('path'),   //Node.JS path module
+  shell = require('shelljs');   //Portable Unix shell commands for Node.js
 
 gulp.task('e2e.test', ['e2e.startServer', 'e2e.stopServer'], function(done){});
 
 gulp.task('e2e.update', function(done){
   //Install/update webdriver requirements for Protractor e2e testing
-  console.log('Protractor webdriver-manager update')
+  console.log('Protractor webdriver-manager update');
   var webdriverBin = path.join(require.resolve('protractor'), '../..', 'bin/webdriver-manager').normalize();
   shell.exec('node ' + webdriverBin + ' update', function (code, output) {
     console.log(output);
@@ -35,4 +35,4 @@ gulp.task('e2e.runProtractor', ['e2e.startServer'], function(done){
 
 gulp.task('e2e.stopServer', ['e2e.runProtractor'], function(){
   process.exit();
-})
+});
